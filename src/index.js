@@ -6,19 +6,19 @@ const setWeather = (weatherData) => {
   let humidityEl = document.querySelector("#current-humidity");
   let descriptionEl = document.querySelector("#current-description");
   let windEl = document.querySelector("#current-wind");
-  let iconEl = document.createElement("img");
+  let imgEl = document.createElement("img");
   let iconContainerEl = document.querySelector("#icon");
   let temperatureEl = document.querySelector(".current-temperature-value");
+  imgEl.classList.add("weather-image");
 
-  console.log(weatherData);
   cityEl.innerHTML = weatherData.city;
   descriptionEl.innerHTML = weatherData.condition.description;
   humidityEl.innerHTML = weatherData.temperature.humidity;
   windEl.innerHTML = Math.round(weatherData.wind.speed);
-  iconEl.src = weatherData.condition.icon_url;
-  iconEl.alt = weatherData.condition.icon;
+  imgEl.src = weatherData.condition.icon_url;
+  imgEl.alt = weatherData.condition.icon;
   iconContainerEl.innerHTML = "";
-  iconContainerEl.appendChild(iconEl);
+  iconContainerEl.appendChild(imgEl);
   temperatureEl.innerHTML = Math.round(weatherData.temperature.current);
 };
 
